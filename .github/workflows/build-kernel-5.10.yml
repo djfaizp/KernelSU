@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         arch: [x86_64]
-        version: ["5.10.178"]
+        version: ["5.10.183"]
         include:
           - arch: x86_64
             git_tag: chromeos-5.10
@@ -96,7 +96,7 @@ jobs:
       - name: Build Kernel
         working-directory: kernel
         run: |
-          set -a && . build.config.gki.x86_64; set +a
+          set -a && . build.config.x86_64; set +a
           export DEFCONFIG=x86_64_defconfig
 
           make LLVM=1 LLVM_IAS=1 DEPMOD=depmod DTC=dtc O=${PWD} mrproper
